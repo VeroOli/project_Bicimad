@@ -85,7 +85,7 @@ In the case of embassies/consulates you have 3 options to find stations with ava
 
 Print desired message
 
-### :shit: **Map**
+### :info: **Map**
 With the coordinates of origin and destination, create a maps url with the bike route in google maps and open it in the browser.
 
 
