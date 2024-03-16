@@ -1,17 +1,56 @@
-# Data Project README file
+# Project Bicimad README file
 
-The README file describes the essence of the project playing the most important role. Most visitors will simply scroll down about twice on the README and leave if they are not interested. So, the README file should provide the reason **why** to checkout your project!!!). 
-Bearing that in mind, your job is to: 
-- Tell them what it is (with context).
-- Show them what it looks like in action.
-- Show them how they use it.
-- Tell them any other relevant details.
 
-![Image](https://res.cloudinary.com/springboard-images/image/upload/q_auto,f_auto,fl_lossy/wordpress/2019/05/aiexcerpt.png)
+### :raising_hand: **Bicimad By Embajadas&Consulados** 
 
----
+Este proyecto consiste en la elaboración de una APP que una Consulados & Embajadas con estaciones de Bicimad.
 
-## **Formatting**
+
+### :baby: **Status**
+1.1, Ironhack Data Analytic:first project
+
+### :running:**Fuentes de información**
+
+Dos fuentes principales de información: 
+
+API Consulados & Embajadas: 
+endpoint: https://datos.madrid.es/egob
+embajadas&consulados: /catalogo/201000-0-embajadas-consulados.json
+
+API Bicimad: 
+url = 'https://openapi.emtmadrid.es/v1/mobilitylabs/user/login/'
+
+headers = {
+    'email': 'your email,
+    'password': 'your password'
+    }
+
+url='https://openapi.emtmadrid.es/v1/transport/bicimad/stations/'
+
+headers = {
+    'accessToken': accessToken,
+    }
+
+response = req.request("GET", url, headers=headers)
+estaciones=response.json()
+
+
+
+### :computer: **Imports**
+
+Para este proyecto hemos importado lo siguiente: 
+`import pandas as pd`
+`import  requests as req`
+`import  json`
+`from shapely.geometry import Point`
+`import  geopandas as gpd`
+`import  fuzzywuzzy import fuzz`
+`import  fuzzywuzzy import process`
+`import  folium`
+`import  polyline`
+`import  webbrowser`
+
+
 Your readers will most likely view your README in a browser so please keep that in mind when formatting its content: 
 - Use proper format when necesary (e.g.: `import pandas as pd`). 
 - Categorize content using two or three levels of header beneath. 
@@ -22,91 +61,60 @@ Your readers will most likely view your README in a browser so please keep that 
 > Here you have a markdown cheatsheet [Link](https://commonmark.org/help/) and tutorial [Link](https://commonmark.org/help/tutorial/).
 
 
-## **Start writing ASAP:**
-*Last but not least, by writing your README soon you give yourself some pretty significant advantages. Most importantly, you’re giving yourself a chance to think through the project without the overhead of having to change code every time you change your mind about how something should be organized or what should be included.*
+### :boom: **Elaborar CSVs:**
+-Desde las fuentes de información, se han creado DataFrames y se han limpiado y ordenado. 
+-Con la información de esas tablas hemos creado 2 CSVs:
+   **Embajadas**: con la información relevante de cada embajada/consulado y con las 3 estaciones más cercanas a cada una de ellas. 
+   **Estaciones**: con la información relevante de casa una de las estaciones y con la más cercana a cada una de ellas. 
 
 
-## **Suggested Structure:**
 
-### :raising_hand: **Name** 
-Self-explanatory names are best. If the name sounds too vague or unrelated, it may be a signal to move on. It also must be catchy. Images, Logo, Gif or some color is strongly recommended.
+### :wrench: **Merge tablas:**
 
-### :baby: **Status**
-Alpha, Beta, 1.1, Ironhack Data Analytics Final Project, etc... It's OK to write a sentence, too. The goal is to let interested people know where this project is at.
+-Cada uno de los CSVs se actualizan con la información actualizada de cada estación desde la API de Bicimad. 
 
-### :running: **One-liner**
-Having a one-liner that describes the pipeline/api/app is useful for getting an idea of what your code does in slightly greater detail. 
 
-### :computer: **Technology stack**
-Python, Pandas, Scipy, Scikit-learn, etc. Indicate the technological nature of the software, including primary programming language(s), main libraries and whether the software is intended as standalone or as a module in a framework or other ecosystem.
+### :see_no_evil: **Funciones de lamada**
+-Función de  origen: 
+      1.Condición: bicis disponibles. 
+Dependiendo de si es consulado, embajada o estación va a buscar en una tabla distinta filtrada. Esto ayudará al **FuzzyWuzzy** a encontrar mejor el input.
+ 
+     2. Condición: bicis disponibles.
+En el caso de embajadas/consulados tiene 3 opciones para encontrar estaciones con bicis disponibles cercanas. En el caso de estación solo una alternativa.
 
-### :boom: **Core technical concepts and inspiration**
-Why does it exist? Frame your project for the potential user. Compare/contrast your project with other, similar projects so the user knows how it is different from those projects. Highlight the technical concepts that your project demonstrates or supports. Keep it very brief.
+Print mensaje deseado
 
-### :wrench: **Configuration**
-Requeriments, prerequisites, dependencies, installation instructions.
+-Función de destino:
+   1.Condición: tipo de destino. 
+Dependiendo de si es consulado, embajada o estación va a buscar en una tabla distinta filtrada. Esto ayudará al **FuzzyWuzzy** a encontrar mejor el input.
 
-### :see_no_evil: **Usage**
-Parameters, return values, known issues, thrown errors.
+   2.Condición: bicis disponibles.
+En el caso de embajadas/consulados      tiene 3 opciones para encontrar estaciones con aparcamientos disponibles cercanos. En el caso de estación solo una alternativa.
+
+Print mensaje deseado
+
+### :shit: **Map**
+Con las coordenadasde origen y destino, crea una url de maps con la ruta en bici en google maps y lo abre en el navegador. 
+
 
 ### :file_folder: **Folder structure**
 ```
 └── project
-    ├── __trash__
     ├── .gitignore
-    ├── .env
-    ├── requeriments.txt
     ├── README.md
     ├── main_script.py
     ├── notebooks
-    │   ├── notebook1.ipynb
-    │   └── notebook2.ipynb
-    ├── package1
-    │   ├── module1.py
-    │   └── module2.py
+    │   ├── dev_notebook_.ipynb
+    │   ├── filter.ipynb
+    │   ├── bicimad_csv.ipynb
+    │   └── Trash.ipynb
+    │   
     └── data
         ├── raw
         ├── processed
-        └── results
+        
 ```
 
-> Do not forget to include `__trash__` and `.env` in `.gitignore` 
 
-### :shit: **ToDo**
-Next steps, features planned, known bugs (shortlist).
 
-### :information_source: **Further info**
-Credits, alternatives, references, license.
-
-### :love_letter: **Contact info**
-Getting help, getting involved, hire me please.
-
----
-
-> Here you have some repo examples:
-
-- [Spotify Recommender](https://github.com/a-fp/Final_Project)
-
-- [Political Spanish Sentiment](https://github.com/ssarahreyes/political_spanish_sentiment)
-- [Face-Mask Detection](https://github.com/marinafdezban/final_project)
-
-- [Data Town](https://github.com/carpiero/DataTown)
-- [Show us your Panerai Watch!](https://github.com/Pvillamanario/Panerai_or_not_Ironhack_final_project)
-
-- [Onegy](https://github.com/borjauria/Final-Project)
-- [Yummest](https://github.com/almsasantos/Yummest_Food_App)
-- [Math handwritting recognition](https://github.com/yaakx/Math_handwritting_recognition)
-- [HackDecó](https://github.com/herreradelduque/Ironhack-Final-Project---HackDeco)
-
-- [E-VITALOS](https://github.com/marinapm90/E-vitalos)
-- [Movie Founder](https://github.com/Alfagu/final-project-Ironhack-0419mad)
-
-- [MMELT](https://github.com/Juanjopf19/Ironhack-final-project--MMELT) 
-- [Mamba (OCR-Translator-Assistant)](https://github.com/YonatanRA/OCR-translator-assistant-project)
-- [Art Classification](https://github.com/serguma/art_classification)
-
-> Here you have some tools and references:
-- [Make a README](https://www.makeareadme.com/)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
