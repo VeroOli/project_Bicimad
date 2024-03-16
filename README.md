@@ -5,6 +5,8 @@
 
 This project consists of the development of an APP that links Consulates & Embassies with Bicimad stations.
 
+![Image](https://www.bicimad.com/sites/default/files/styles/news_full/public/2023-03/243A0004.jpg.webp?itok=AqUARnFb)
+
 
 ### :baby: **Status**
 1.1, Ironhack Data Analytic:first project
@@ -85,7 +87,11 @@ In the case of embassies/consulates you have 3 options to find stations with ava
 
 Print desired message
 
-### :info: **Map**
+
+### :see_no_evil: **argparse**
+We use argarse in .py to give the inputs to our functions and get our output back in the terminal.
+
+### :map: **Map**
 With the coordinates of origin and destination, create a maps url with the bike route in google maps and open it in the browser.
 
 

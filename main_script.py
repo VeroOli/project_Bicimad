@@ -174,7 +174,9 @@ def buscar_destino(type_of_place_destino, destino):
             
             coordenadas.append((lat_finish, long_finish))
             
-        mensaje = f'Tu destino es el siguiente consulado/embajada {ruta_data_destino["title"].iloc[0].upper()} ({ruta_data_destino["street-address"].iloc[0].title()}), con {ruta_data_destino["free_bases"].iloc[0]} aparcameintos libres.'
+        mensaje = f'Tu destino es la/el {ruta_data_destino["title"].iloc[0].upper()} ({ruta_data_destino["street-address"].iloc[0].title()}). '
+        mensaje += f' La estación de Bicimad más cercana es {ruta_data_destino["name"].iloc[0].upper()}({ruta_data_destino["address"].iloc[0].split(" ,")[0]}) '
+        mensaje += f'a {round(ruta_data_destino["distance"].iloc[0])} metros de distancia y con {ruta_data_destino["free_bases"].iloc[0]} aparcamientos libres.'
         return (mensaje)    
     
     elif type_of_place_destino.lower() == 'estacion':
