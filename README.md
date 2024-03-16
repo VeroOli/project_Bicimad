@@ -3,7 +3,7 @@
 
 ### :raising_hand: **Bicimad By Embajadas&Consulados** 
 
-Este proyecto consiste en la elaboración de una APP que una Consulados & Embajadas con estaciones de Bicimad.
+This project consists of the development of an APP that links Consulates & Embassies with Bicimad stations.
 
 
 ### :baby: **Status**
@@ -11,7 +11,8 @@ Este proyecto consiste en la elaboración de una APP que una Consulados & Embaja
 
 ### :running:**Fuentes de información**
 
-Dos fuentes principales de información: 
+Two main sources of information: 
+
 
 API Consulados & Embajadas: 
 endpoint: https://datos.madrid.es/egob
@@ -38,7 +39,7 @@ estaciones=response.json()
 
 ### :computer: **Imports**
 
-Para este proyecto hemos importado lo siguiente: 
+For this project we have imported the following:
 `import pandas as pd`
 `import  requests as req`
 `import  json`
@@ -51,50 +52,41 @@ Para este proyecto hemos importado lo siguiente:
 `import  webbrowser`
 
 
-Your readers will most likely view your README in a browser so please keep that in mind when formatting its content: 
-- Use proper format when necesary (e.g.: `import pandas as pd`). 
-- Categorize content using two or three levels of header beneath. 
-- Make use of **emphasis** to call out important words. 
-- Link to project pages for related libraries you mention. Link to Wikipedia, Wiktionary, even Urban Dictionary definitions for words of which a reader may not be familiar. Make amusing cultural references. 
-- Add links to related projects or services. 
 
-> Here you have a markdown cheatsheet [Link](https://commonmark.org/help/) and tutorial [Link](https://commonmark.org/help/tutorial/).
-
-
-### :boom: **Elaborar CSVs:**
--Desde las fuentes de información, se han creado DataFrames y se han limpiado y ordenado. 
--Con la información de esas tablas hemos creado 2 CSVs:
-   **Embajadas**: con la información relevante de cada embajada/consulado y con las 3 estaciones más cercanas a cada una de ellas. 
-   **Estaciones**: con la información relevante de casa una de las estaciones y con la más cercana a cada una de ellas. 
+### :boom: **Create CSVs:**
+-From the information sources, DataFrames have been created, cleaned and sorted. 
+-With the information from these tables we have created 2 CSVs:
+   **Embassies**: with the relevant information of each embassy/consulate and with the 3 nearest stations to each of them. 
+   **Stations**: with the relevant information of each of the stations and with the closest station to each of them. 
 
 
 
 ### :wrench: **Merge tablas:**
 
--Cada uno de los CSVs se actualizan con la información actualizada de cada estación desde la API de Bicimad. 
+-Each of the CSVs are updated with the updated information of each station from the Bicimad API. 
 
 
-### :see_no_evil: **Funciones de lamada**
--Función de  origen: 
-      1.Condición: bicis disponibles. 
-Dependiendo de si es consulado, embajada o estación va a buscar en una tabla distinta filtrada. Esto ayudará al **FuzzyWuzzy** a encontrar mejor el input.
+### :see_no_evil: **Lick functions**
+-Function of origin: 
+      1.Condition: available bikes. 
+Depending on whether it is consulate, embassy or station it will search in a different filtered table. This will help the **FuzzyWuzzy** to find the input better.
  
-     2. Condición: bicis disponibles.
-En el caso de embajadas/consulados tiene 3 opciones para encontrar estaciones con bicis disponibles cercanas. En el caso de estación solo una alternativa.
+     2. Condition: bikes available.
+In the case of embassy/consulate you have 3 options to find stations with available bikes nearby. In case of station only one alternative.
 
-Print mensaje deseado
+Print desired message
 
--Función de destino:
-   1.Condición: tipo de destino. 
-Dependiendo de si es consulado, embajada o estación va a buscar en una tabla distinta filtrada. Esto ayudará al **FuzzyWuzzy** a encontrar mejor el input.
+-Destination function:
+   1.Condition: destination type. 
+Depending on whether it is consulate, embassy or station it will search in a different filtered table. This will help the **FuzzyWuzzy** to find the input better.
 
-   2.Condición: bicis disponibles.
-En el caso de embajadas/consulados      tiene 3 opciones para encontrar estaciones con aparcamientos disponibles cercanos. En el caso de estación solo una alternativa.
+   Condition: bikes available.
+In the case of embassies/consulates you have 3 options to find stations with available parking nearby. In case of station only one alternative.
 
-Print mensaje deseado
+Print desired message
 
 ### :shit: **Map**
-Con las coordenadasde origen y destino, crea una url de maps con la ruta en bici en google maps y lo abre en el navegador. 
+With the coordinates of origin and destination, create a maps url with the bike route in google maps and open it in the browser.
 
 
 ### :file_folder: **Folder structure**
