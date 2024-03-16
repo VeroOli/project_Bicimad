@@ -5,7 +5,9 @@
 
 This project consists of the development of an APP that links Consulates & Embassies with Bicimad stations.
 
-The inputs will be origin and destination. Both origin and destination can be embassies, consulates or stations. 
+The inputs will be origin and destination. Both origin and destination can be embassies, consulates or stations.  In the case of embassy or destination, the output is the nearest bicimad station with bikes or free parking. And in the case of station it tells you how many bikes or free parking has, in the case of not having, it looks for the nearest one.
+
+Finally it tells you how many meters is the route in bice from station to station, and returns the map with the route.  
 
 ![Image](https://www.bicimad.com/sites/default/files/styles/news_full/public/2023-03/243A0004.jpg.webp?itok=AqUARnFb)
 
