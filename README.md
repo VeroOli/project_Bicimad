@@ -5,6 +5,8 @@
 
 This project consists of the development of an APP that links Consulates & Embassies with Bicimad stations.
 
+The inputs will be origin and destination. Both origin and destination can be embassies, consulates or stations. 
+
 ![Image](https://www.bicimad.com/sites/default/files/styles/news_full/public/2023-03/243A0004.jpg.webp?itok=AqUARnFb)
 
 
