@@ -10,7 +10,7 @@ __pycache__
 *.log
 /*.log
 selenium/
-
+*.html
 contraseñas.txt
 pass_.py
 password.txt
