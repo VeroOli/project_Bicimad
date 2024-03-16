@@ -59,8 +59,8 @@ For this project we have imported the following:
 ###  **Create CSVs:**
 -From the information sources, DataFrames have been created, cleaned and sorted. 
 -With the information from these tables we have created 2 CSVs:
-   **Embassies**: with the relevant information of each embassy/consulate and with the 3 nearest stations to each of them. 
-   **Stations**: with the relevant information of each of the stations and with the closest station to each of them. 
+  - **Embassies**: with the relevant information of each embassy/consulate and with the 3 nearest stations to each of them. 
+  - **Stations**: with the relevant information of each of the stations and with the closest station to each of them. 
 
 
 
@@ -70,20 +70,22 @@ For this project we have imported the following:
 
 
 ###  **Lick functions**
--Function of origin: 
-      1.Condition: available bikes. 
+-**Function of origin**: 
+
+-Condition: available bikes. 
 Depending on whether it is consulate, embassy or station it will search in a different filtered table. This will help the **FuzzyWuzzy** to find the input better.
  
-     2. Condition: bikes available.
+-Condition: bikes available.
 In the case of embassy/consulate you have 3 options to find stations with available bikes nearby. In case of station only one alternative.
 
 Print desired message
 
--Destination function:
-   1.Condition: destination type. 
+-**Destination function**:
+
+-Condition: destination type. 
 Depending on whether it is consulate, embassy or station it will search in a different filtered table. This will help the **FuzzyWuzzy** to find the input better.
 
-   Condition: bikes available.
+-Condition: bikes available.
 In the case of embassies/consulates you have 3 options to find stations with available parking nearby. In case of station only one alternative.
 
 Print desired message
