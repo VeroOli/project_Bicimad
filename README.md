@@ -66,7 +66,8 @@ For this project we have imported the following:
   - **Embassies**: with the relevant information of each embassy/consulate and with the 3 nearest stations to each of them. 
   - **Stations**: with the relevant information of each of the stations and with the closest station to each of them. 
 
-
+###  **argparse**
+We use argarse in .py to give the inputs to our functions and get our output back in the terminal.
 
 ###  **Merge DataFrames:**
 
@@ -95,8 +96,17 @@ In the case of embassies/consulates you have 3 options to find stations with ava
 Print desired message
 
 
-###  **argparse**
-We use argarse in .py to give the inputs to our functions and get our output back in the terminal.
+
+###  **message**
+
+The message we get back is what is your origin and the nearby bicimad station (in case of being the origin embassy/consulate) and how many bikes are available at that moment. 
+The destination you are going to and how many parking spaces you have available.
+
+In case the origin or destination is a bicimad station, it also returns a list of nearby embassies/consulates (in case that station is one of the 3 closest stations to an embassy or consulate). 
+
+Finally, it indicates the meters of the total route by bike and shows the route on Google Maps. 
+
+
 
 ### **Map**
 With the coordinates of origin and destination, create a maps url with the bike route in google maps and open it in the browser.
